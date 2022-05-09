@@ -1,12 +1,15 @@
 {
 	"name": "flutter",
-	"image": "flutter_docker",
+	"image": "georgespanos/flutter:latest",
+	"mounts": [
+		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
+	],
 	"extensions": [
 		"dart-code.flutter"
 	],
 	"runArgs": [
-		"--privileged",
-		"-v",
-		"/dev/bus/usb:/dev/bus/usb"
-	]
+		"--privileged"
+	],
+	"workspaceMount": "source=${localWorkspaceFolder}/workspace,target=/src,type=bind,consistency=delegated",
+	"workspaceFolder": "/src"
 }
